@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.mindeo.plugin"
+        version="1.0.0">
+
+  <name>MindeoScanner</name>
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+
+  <asset src="www/mindeoscanner.js" target="js/mindeoscanner.js"/>
+
+  <js-module src="www/mindeoscanner.js" name="mindeoscanner">
+    <clobbers target="mindeoscanner" />
+  </js-module>
+
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="MindeoScanner">
+        <param name="android-package" value="com.mindeo.plugin.MindeoScanner"/>
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/MindeoScanner.java" target-dir="src/com/mindeo/plugin/"/>
+    <source-file src="src/android/MindeoReceiver.java" target-dir="src/com/mindeo/plugin/"/>    
+  </platform>
+
+</plugin>
